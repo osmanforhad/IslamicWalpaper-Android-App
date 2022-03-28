@@ -2,6 +2,7 @@ package developer.osmanforhad.islamicwallpaper;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -52,6 +53,11 @@ public class MainActivity extends AppCompatActivity {
                     String data = shot.getValue().toString();
                     list.add(data);
                 }
+                //__communicate with Adapter Class__//
+                recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
+                adapter = new WallpaperAdapter(list, MainActivity.this);
+                recyclerView.setAdapter(adapter);
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override
