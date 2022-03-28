@@ -1,6 +1,7 @@
 package developer.osmanforhad.islamicwallpaper;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,9 @@ public class WallpaperAdapter extends RecyclerView.Adapter<WallpaperAdapter.Wall
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(context, FullImageActivity.class);
+                intent.putExtra("image", list.get(position));
+                context.startActivity(intent);
             }
         });
     }
